@@ -1,0 +1,61 @@
+//a. Retrieve all customers and their details from the Customers table.
+
+select * from Customers
+
+//b.Retrieve all orders along with the customer details for each order.
+  
+SELECT o.*, c.FirstName, c.LastName
+FROM Orders o
+JOIN Customers c ON o.CustomerID = c.CustomerID;
+
+
+//Filtering and Sorting:
+//a.Retrieve customers whose last name starts with 'S'.
+ 
+SELECT * FROM Customers WHERE LastName LIKE 'S%';
+
+//b. Retrieve orders placed by a specific customer (you can choose one customer).
+
+SELECT * FROM Orders WHERE CustomerID = 105;
+
+//c. Retrieve orders placed in the last month, sorted by order date.
+
+SELECT * 
+FROM Orders 
+WHERE OrderDate >= DATE_SUB(NOW(), INTERVAL 1 MONTH) 
+ORDER BY OrderDate;
+
+// Aggregation:
+// a. Calculate the total number of orders in the Orders table.
+
+SELECT COUNT(*) AS TotalOrders FROM Orders;
+
+//b. Calculate the average total amount of orders.
+
+SELECT AVG(TotalAmount) AS AvgTotalAmount FROM Orders;
+
+//Update and Delete:
+//a. Update the phone number of a specific customer.
+
+UPDATE Customers SET PhoneNumber = '8685476435' WHERE CustomerID = 106;
+
+//b. Delete a specific order along with its details.
+
+DELETE FROM Orders WHERE OrderID = 7;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

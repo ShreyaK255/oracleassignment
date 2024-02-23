@@ -1,0 +1,29 @@
+//Parameterised Procedure
+
+create or repalce procedure discount (product_name_in VARCHAR2)
+IS
+BEGIN
+    UPDATE Orders 
+    SET TotalAmount = TotalAmount - (TotalAmount * 0.10) 
+    WHERE ProductName = product_name_in;
+END discount;
+
+//call discount
+CALL discount('OLA S1 X');
+
+select * from orders where ProductName='OLA S1 X';
+
+
+ //non-parameterised Procedure
+
+create or replace procedure discount 
+as 
+begin 
+update orders set TotalAmount=(TotalAmount-(TotalAmount*10/100)) 
+where ProductName='OLA S1 X'; 
+end;
+
+//call discount
+
+call discount;
+

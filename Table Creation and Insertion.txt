@@ -1,0 +1,55 @@
+//Table Creation
+//Customer table
+ 
+CREATE TABLE Customers ( 
+    CustomerID INT PRIMARY KEY, 
+    FirstName VARCHAR(50), 
+    LastName VARCHAR(50), 
+    Email VARCHAR(100), 
+    PhoneNumber VARCHAR(20) 
+)
+
+Table created.
+
+//Orders table
+
+CREATE TABLE Orders ( 
+    OrderID INT PRIMARY KEY, 
+    CustomerID INT, 
+    OrderDate DATE, 
+    ProductName VARCHAR(100), 
+    Quantity INT, 
+    TotalAmount DECIMAL(10, 2), 
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID) 
+)
+Table created.
+
+//Insertion
+//Inserting values in Customer table
+
+INSERT INTO Customers VALUES (100, 'Shreya', 'Kurhade', 'shreyakurhade@gmail.com', '8753875627');
+INSERT INTO Customers VALUES (101, 'Shreya', 'Bansod', 'shreyabansod@gmail.com', '8687523364');
+INSERT INTO Customers VALUES (102, 'Khushi', 'Zatale', 'khushizatale@gmail.com', '5246436257');
+INSERT INTO Customers VALUES (103, 'Shiwani', 'Gole', 'shiwanigole@gmail.com', '6354765989');
+INSERT INTO Customers VALUES (104, 'Neha', 'Shukla', 'nehas@gmail.com', '6758643221');
+INSERT INTO Customers VALUES (105, 'Rujuta', 'Triwad', 'rujut@gmail.com', '5647382910');
+INSERT INTO Customers VALUES (106, 'Achal', 'Gawande', 'gawande@gmail.com', '9876968543');
+INSERT INTO Customers VALUES (107, 'Harshada', 'Gawande', 'harshu@gmail.com', '7763465498');
+INSERT INTO Customers VALUES (108, 'Amruta', 'Thakare', 'amruta@gmail.com', '9868653754');
+INSERT INTO Customers VALUES (109, 'Ram', 'Kadu', 'ramk@gmail.com', '7764533326');
+INSERT INTO Customers VALUES (110, 'Vinu', 'Thakare', 'vinut@gmail.com', '7546463458');
+
+
+//Inserting values in Orders table 
+
+INSERT INTO Orders VALUES (1, 101, TO_DATE('2024-01-01', 'YYYY-MM-DD'), 'Honda Activa 6G', 500, 77712.00);
+INSERT INTO Orders VALUES (2, 102, TO_DATE('2024-01-02', 'YYYY-MM-DD'), 'TVS Ntorq 125', 500, 87133.00);
+INSERT INTO Orders VALUES (3, 102, TO_DATE('2024-02-03', 'YYYY-MM-DD'), 'Suzuki Access 125', 100, 82253.00);
+INSERT INTO Orders VALUES (4, 103, TO_DATE('2024-02-04', 'YYYY-MM-DD'), 'Honda Activa 125', 200, 82043.00);
+INSERT INTO Orders VALUES (5, 104, TO_DATE('2024-02-05', 'YYYY-MM-DD'), 'OLA S1 X', 300, 79999.00);
+INSERT INTO Orders VALUES (6, 105, TO_DATE('2024-03-06', 'YYYY-MM-DD'), 'TVS Jupiter', 100, 76738.00);
+INSERT INTO Orders VALUES (7, 106, TO_DATE('2024-03-07', 'YYYY-MM-DD'), 'Honda Dio', 100, 74235.00);
+INSERT INTO Orders VALUES (8, 107, TO_DATE('2024-04-08', 'YYYY-MM-DD'), 'Suzuki Burgman Street 125', 50, 96525.00);
+INSERT INTO Orders VALUES (9, 108, TO_DATE('2024-04-09', 'YYYY-MM-DD'), 'TVS Jupiter 125', 100, 85574.00);
+INSERT INTO Orders VALUES (10, 109, TO_DATE('2024-05-01', 'YYYY-MM-DD'), 'OLA S1 Pro', 50, 129999.00);
+INSERT INTO Orders VALUES (11, 110, TO_DATE('2024-05-02', 'YYYY-MM-DD'), 'Bajaj Chetak', 100, 117285.00);

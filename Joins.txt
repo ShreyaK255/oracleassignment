@@ -1,0 +1,38 @@
+//Joins
+//a. Retrieve orders along with the customer details for each order, using INNER JOIN.
+
+SELECT o.*, c.FirstName, c.LastName
+FROM Orders o
+INNER JOIN Customers c ON o.CustomerID = c.CustomerID;
+
+
+//b. Retrieve customers who have not placed any orders, using LEFT JOIN
+
+SELECT c.*
+FROM Customers c
+LEFT JOIN Orders o ON c.CustomerID = o.CustomerID
+WHERE o.OrderID IS NULL;
+
+//Inner Join
+
+SELECT *
+FROM Customers c
+INNER JOIN Orders o ON c.CustomerID = o.CustomerID;
+
+//Left Join
+
+SELECT *
+FROM Customers c
+LEFT JOIN Orders o ON c.CustomerID = o.CustomerID;
+
+//Right Join
+
+SELECT *
+FROM Customers c
+RIGHT JOIN Orders o ON c.CustomerID = o.CustomerID;
+
+//Cross Join
+
+SELECT *
+FROM Customers
+CROSS JOIN Orders;

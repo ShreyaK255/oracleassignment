@@ -1,0 +1,38 @@
+//Views
+//View to display all customers
+
+CREATE VIEW AllCustomers AS
+SELECT * FROM Customers;
+
+//View to display all Orders
+
+
+CREATE VIEW AllOrders AS
+SELECT * FROM Orders;
+
+//Retriving the data using views 
+
+CREATE VIEW AllOrders AS
+SELECT *
+FROM Orders
+WHERE TotalAmount > 1000;
+
+//Call View
+
+Select* from AllCustomers;
+
+//Drop View
+ 
+DROP VIEW AllOrders;
+
+//Joins in Views
+//View to display customer details along with their order counts
+
+CREATE VIEW CustomerOrderCounts AS
+SELECT c.CustomerID, c.FirstName, c.LastName, c.Email, c.PhoneNumber, COUNT(o.OrderID) AS OrderCount
+FROM Customers c
+LEFT JOIN Orders o ON c.CustomerID = o.CustomerID
+GROUP BY c.CustomerID;
+
+
+
